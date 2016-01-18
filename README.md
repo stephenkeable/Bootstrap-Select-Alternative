@@ -1,1 +1,1 @@
-# Bootstrap-Select-Alternative
+# Bootstrap Select Alternative
