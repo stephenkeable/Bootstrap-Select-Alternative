@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Bootstrap Select Alternative Example</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    body { padding: 20px; }
+    
+.radio-select-container {
+    margin-top: 15px;
+}
+.radio-select-inner {
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0 15px;
+    position:relative;
+}
+.radio-select-inner .radio-wrapper {
+    padding: 10px;
+}
+.radio-wrapper.checked {
+    background: #999;
+    color: #fff;
+}
+.radio-select-container .panel-heading {
+    cursor: pointer;
+}
+/* Make OSX Lion and above, always show scrollbar */
+ .radio-select-inner::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.radio-select-inner::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .1);
+}
+.radio-select-inner::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+</style>
+
+  </head>
+  <body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="radio-select-container panel panel-default">
+                <!-- Header with collapse action on click -->
+                <div class="panel-heading"><a href="#"><i class="fa fa-fw fa-chevron-up pull-right"></i><span>Collapse Menu</span></a>
+                </div>
+                <div class="radio-select-inner panel-body">
+                    <!-- items of the list go in here as "div.radio-wrapper.radio->label->input:radio->span" items -->
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Star Wars: A New Hope</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Star Wars: Empire Strikes Back</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Star Wars: Return Of The Jedi</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Indiana Jones and Raiders of the Lost Ark</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Indiana Jones and the Temple of Doom</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Indiana Jones and the Last Crusade</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Back to the Future</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Back to the Future II</span>
+                        </label>
+                    </div>
+                    <div class="radio-wrapper radio">
+                        <label>
+                            <input type="radio" name="optionsRadios"><span>Back to the Future III</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+<script>
+$(document).ready(function () {
+
+    /* Control the expand/collapse, change label and icon */
+
+    $(".radio-select-container .panel-heading").on('click', function (e) {
+
+        e.preventDefault();
+
+        if ($(".radio-select-inner").hasClass("hide")) {
+
+            $(".radio-select-inner").removeClass("hide");
+            $(".radio-select-container .panel-heading i.fa").removeClass("fa-chevron-down");
+            $(".radio-select-container .panel-heading i.fa").addClass("fa-chevron-up");
+            $(".radio-select-container .panel-heading a span").text("Collapse Menu");
+
+        } else {
+
+            $(".radio-select-inner").addClass("hide");
+            $(".radio-select-container .panel-heading i.fa").removeClass("fa-chevron-up");
+            $(".radio-select-container .panel-heading i.fa").addClass("fa-chevron-down");
+            $(".radio-select-container .panel-heading a span").text("Expand Menu");
+
+        }
+    });
+
+    /*
+		Function to help with keyboard navigation of the radio list, 
+		keeps the currently selected item within the visible scrolling div.
+		Also adds a class to the selected parent to add highlight styling.
+	*/
+
+    $(".radio-wrapper input:radio").on('change', function () {
+
+        /* Add a class to the parent of the radio button when selected */
+        $(".radio-wrapper").removeClass("checked");
+        $(".radio-wrapper input:radio:checked").parents(".radio-wrapper").addClass("checked");
+
+        /* Get heights and offsets */
+        var item_offset = $(this).parents(".radio-wrapper").position();
+        var item_height = $(this).parents(".radio-wrapper").outerHeight(true);
+        var wrapper_height = $(".radio-select-inner").innerHeight();
+        var wrapper_position = $(".radio-select-inner").scrollTop();
+
+        if (item_offset.top - item_height < 0) {
+
+            /* Item is above the visible area */
+            $(".radio-select-inner").scrollTop(wrapper_position + item_offset.top - 15);
+            /* The " - 15" compensates for bootstrap spacing */
+
+        } else if (item_offset.top > wrapper_height - item_height) {
+
+            /* Item is below visible area */
+            $(".radio-select-inner").scrollTop(wrapper_position + item_offset.top - (wrapper_height - item_height));
+
+        }
+
+    });
+
+});
+</script>
+  </body>
+</html>
