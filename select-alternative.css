@@ -1,0 +1,35 @@
+.radio-select-container {
+    margin-top: 15px;
+}
+.radio-select-inner {
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0 15px;
+    position:relative;
+}
+.radio-select-inner .radio-wrapper {
+    padding: 10px;
+}
+.radio-wrapper.checked {
+    background: #999;
+    color: #fff;
+}
+.radio-select-container .panel-heading {
+    cursor: pointer;
+}
+/* Make OSX Lion and above, always show scrollbar */
+ .radio-select-inner::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.radio-select-inner::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .1);
+}
+.radio-select-inner::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
