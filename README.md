@@ -6,3 +6,6 @@ After seeing [Alice Bartlett's great talk](https://www.youtube.com/watch?v=CUkMC
 Bootstrap  
 jQuery  
 Font Awesome
+
+[Example usage](http://stephenkeable.github.io/Bootstrap-Select-Alternative/)
+[Demo](http://stephenkeable.github.io/Bootstrap-Select-Alternative/example.html)
