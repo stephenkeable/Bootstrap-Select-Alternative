@@ -7,5 +7,5 @@ Bootstrap
 jQuery  
 Font Awesome
 
-[Example usage](http://stephenkeable.github.io/Bootstrap-Select-Alternative/)
+[Example usage](http://stephenkeable.github.io/Bootstrap-Select-Alternative/)   
 [Demo](http://stephenkeable.github.io/Bootstrap-Select-Alternative/example.html)
